@@ -1,46 +1,17 @@
-public class Lesson {
+import model.Student;
+import service.StudentService;
 
+public class Lesson {
 
     public static void main(String[] args) {
 
-        Pupil pupil = new Pupil();
-        pupil.name = "Vazgen";
-        pupil.surname = "Vardanyan";
-        pupil.age = 18;
-        pupil.gender = 'M';
-        pupil.mark = 7.5;
 
-        System.out.println(pupil.name + " " + pupil.surname + " " + pupil.age + " " + pupil.gender + " " + pupil.mark);
+        StudentService service = new StudentService();
 
-        Car car = new Car();
-        car.name = "Mercedes";
-        car.color = "Red";
-        car.speed = 300;
-        car.year = 2025;
+        Student s = service.createStudent("Anna", "Martirosyan", 20, 78.9, 'F', true);
+        Student s1 = service.createStudent("Hayk", "Vardanyan", 25, 89.3, 'M', false);
 
-        System.out.println(car.name + " " + car.color + " " + car.speed + " " + car.year);
+        service.maxStudent(s, s1);
 
-        Human human = new Human();
-        human.name = "John";
-        human.surname = "Doe";
-        human.age = 25;
-        human.gender = 'M';
-        human.job = "programmer";
-
-        System.out.println(human.name + " " + human.surname + " " + human.age + " " + human.gender + " " + human.job);
-
-        Animal animal = new Animal();
-        animal.name = "Joni";
-        animal.age = 18;
-        animal.color = "black";
-        animal.type = "Dog";
-
-        System.out.println(animal.name + " " + animal.age + " " + animal.color + " " + animal.type);
-
-        Book book = new Book();
-        book.title = "Java";
-        book.author = "Vazgen";
-        book.pages = 659;
-        book.fame = true;
     }
 }
