@@ -4,7 +4,7 @@ public class Student {
 
     private String name;
     private String surname;
-    private int age;
+    private int year = 2024;
     private double mark;
     private char gender;
 
@@ -22,7 +22,7 @@ public class Student {
     public void printInfo() {
         System.out.println("Name: " + name);
         System.out.println("Surname: " + surname);
-        System.out.println("Age: " + age);
+        System.out.println("Age: " + year);
         System.out.println("Mark: " + mark);
         System.out.println("Gender: " + (gender == 'F' ? "Female" : "Male"));
         System.out.println("Is PHD: " + (isPHD ? "Yes" : "No"));
@@ -40,12 +40,13 @@ public class Student {
         this.mark = mark;
     }
 
-    public int getAge() {
-        return age;
+    public int getYear() {
+        return year;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setYear(int year) {
+        if (year > 1920 && year < 2025)
+            this.year = year;
     }
 
     public String getSurname() {
