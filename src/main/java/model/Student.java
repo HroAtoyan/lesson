@@ -22,7 +22,7 @@ public class Student {
     public void printInfo() {
         System.out.println("Name: " + name);
         System.out.println("Surname: " + surname);
-        System.out.println("Age: " + year);
+        System.out.println("Year: " + year);
         System.out.println("Mark: " + mark);
         System.out.println("Gender: " + (gender == 'F' ? "Female" : "Male"));
         System.out.println("Is PHD: " + (isPHD ? "Yes" : "No"));

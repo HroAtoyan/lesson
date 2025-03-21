@@ -35,12 +35,12 @@ public class StudentService {
     public void maxStudent(Student s1, Student s2) {
         if (s1.getYear() < s2.getYear()) {
             s1.printInfo();
-        }else {
+        } else {
             s2.printInfo();
         }
     }
 
-    public void girlStudents(Student [] students) {
+    public void girlStudents(Student[] students) {
         for (int i = 0; i < students.length; i++) {
             if (students[i].getGender() == 'M') {
                 students[i].printInfo();
@@ -57,6 +57,7 @@ public class StudentService {
             }
         }
     }
+
     public Student[] sortFemales(Student[] students) {
         int count = 0;
         for (Student s : students) {
@@ -79,4 +80,65 @@ public class StudentService {
         return result;
     }
 
+    public Student[] isPhdStudents(Student[] students) {
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].isPHD()) {
+                students[i].printInfo();
+            }
+        }
+        return students;
+    }
+
+    public void minGirlStudents(Student[] students) {
+        Student min = students[0];
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].getYear() > min.getYear() && students[i].getGender() == 'F') {
+                min = students[i];
+                min.printInfo();
+            }
+        }
+    }
+
+    public Student[] sortMark(Student[] students) {
+        if (students == null || students.length == 0) {
+            System.out.println("No students found");
+            return students;
+        }
+
+        for (int i = 0; i < students.length - 1; i++) {
+            for (int j = 0; j < students.length - i - 1; j++) {
+                if (students[j].getMark() > students[j + 1].getMark()) {
+                    Student temp = students[j];
+                    students[j] = students[j + 1];
+                    students[j + 1] = temp;
+                }
+            }
+        }
+        return students;
+
+    }
+
+    public void maxBoyStudents(Student[] students) {
+        Student max = students[0];
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].getMark() > max.getMark() && students[i].getGender() == 'M') {
+                max = students[i];
+            }
+        }
+        if (max != null) {
+            max.printInfo();
+        } else {
+            System.out.println("No male students found.");
+        }
+    }
+
+    public Student[] isPhdMaxMark(Student[] students) {
+        Student max = students[0];
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].getMark() > max.getMark() && students[i].isPHD()) {
+                max = students[i];
+            }
+        }
+        return new Student[]{max};
+    }
 }
